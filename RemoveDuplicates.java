@@ -1,31 +1,43 @@
-package week1.assignments;
+package week3.assignments;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class RemoveDuplicates {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		String input = "PayPal";
 		
-		String str = "We learn java basics as part of java sessions in java week1";
+		char[] chars = input.toCharArray();
 		
-		int count = 0;
+		Set<Character> charSet = new LinkedHashSet<Character>();
 		
-		String[] str1=str.split(" ");
+		Set<Character> dupCharSet = new LinkedHashSet<Character>();
 		
-		for (int i = 0; i < str1.length; i++) {
-			
-			for (int j = i+1; j < str1.length; j++) {
-				
-				if(str1[i].equals(str1[j])) {
-					count++;
-				}	
-				
-			if(count > 1){
-				str = str.replace(str1[i],"");
-				count = 0;
-				}
+		for (int i = 0; i < chars.length; i++) {
+			char str = chars[i];
+			if (str != ' ') {
+				charSet.add(new Character(chars[i]));
+
 			}
+
+
+			if (charSet.contains(chars[i])) {
+				dupCharSet.add(new Character(chars[i]));
+
+			}
+
 		}
-		
-		System.out.println(str);
-	}
+
+		if (dupCharSet.equals(charSet)) {
+			charSet.remove(dupCharSet);
+		}
+
+
+				System.out.println(charSet);
+			
+		}
 }
+		
+	
